@@ -50,11 +50,11 @@ def run(generate):
         KAFKA_IP, KAFKA_PORT, KAFKA_TOPIC, generate))
     p1.start()
     # run a consumer
-    #p2 = Process(target=lambda: consume(KAFKA_IP, KAFKA_PORT, KAFKA_TOPIC))
-    # p2.start()
+    p2 = Process(target=lambda: consume(KAFKA_IP, KAFKA_PORT, KAFKA_TOPIC))
+    p2.start()
 
     p1.join()
-    # p2.join()
+    p2.join()
 
 
 if __name__ == "__main__":
